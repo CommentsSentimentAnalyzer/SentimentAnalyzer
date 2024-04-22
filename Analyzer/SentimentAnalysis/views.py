@@ -32,8 +32,8 @@ def formresult(request):
     c = request.POST.get('comment')
     commentRes = make_prediction(c)
     comm = comment()
-    comm.comment = c
     comm.user = request.user
+    comm.comment = c
     comm.result = commentRes
     comm.save()
     return render(request,'Sentimentanalysis/home.html',{'comment':commentRes})
