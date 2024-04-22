@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="NAVBAR">
+    <a class="navbar-brand" id="nav-title" href="/">Farmer's Friend</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" id="items">
+        <li class="nav-item {% block homeactive %} {% endblock homeactive %}">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li> 
+        <li class="nav-item {% block Communityactive %} {% endblock Communityactive %}">
+          <a class="nav-link" href="/community">Community</a>
+        </li>
+        <li class="nav-item {% block CropAnalyzeractive %} {% endblock CropAnalyzeractive %}">
+          <a class="nav-link" href="">Crop Analyzer</a>
+        </li>
+        <li class="nav-item {% block WeatherForecastactive %} {% endblock WeatherForecastactive %}">
+          <a class="nav-link" href="">Weather Forecast</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item {% block Historyactive %} {% endblock Historyactive %}">
+            <a class="nav-link" href="">History</a>
+          </li>
+        {% endif %}
+      </ul>
+      
+      {% if user.is_authenticated %}
+      <ul class="navbar-nav mr-2">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </li>
+      </ul>
+      {% else %}
+        <!-- Button to  trigger Login modal -->
+        <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#loginModal">
+          Login
+        </button>
+          <!-- Button to  trigger SignUp modal -->
+        <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#signupModal">
+          SignUp
+        </button>
+      {% endif %}
+    </div>
+  </nav>
