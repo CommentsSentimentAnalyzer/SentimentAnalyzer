@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block Communityactive %}
 active 
 {% endblock Communityactive %}
@@ -25,15 +25,50 @@ active
               <div class="form-group">
                 <textarea type="text" class="form-control bg-dark text-light" rows="5" name="comment" id="comment" placeholder="Enter your comment for analysis..."></textarea>
               </div>
-              <button type="submit" class="btn btn-warning btn-block">Submit</button>
+              {% if user.is_authenticated %}
+                <button type="submit" class="btn btn-warning btn-block">Submit</button>
+              {% else %}
+                <badge class="btn btn-danger disabled" type="">Please Login!</badge>
+              {% endif %}
             </form>
           </div>
         </div>
     </div>     
-    {% if comment %}
-    <div class="text-center m-5 text-light" >
-        <hr class="bg-warning " >
-    <h1>The comment is {{comment}}</h1>
+    {% if comment == 'Positive' %}
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="text-center m-5 text-light bg-dark p-4 rounded">
+            <hr class="bg-warning mb-4">
+            <h1>The Inputed comment is {{comment}}</h1>
+            <img src="{% static "img/happy2.png" %}" alt="Your Image" class="img-fluid mt-4 rounded-circle" style="width: 200px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% elif comment == 'Neutral' %}    
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="text-center m-5 text-light bg-dark p-4 rounded">
+            <hr class="bg-warning mb-4">
+            <h1>The Inputed comment is {{comment}}</h1>
+            <img src="{% static "img/neutral.png" %}" alt="Your Image" class="img-fluid mt-4 rounded-circle" style="width: 200px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="text-center m-5 text-light bg-dark p-4 rounded">
+            <hr class="bg-warning mb-4">
+            <h1>The Inputed comment is {{comment}}</h1>
+            <img src="{% static "img/angry.png" %}" alt="Your Image" class="img-fluid mt-4 rounded-circle" style="width: 200px;">
+          </div>
+        </div>
+      </div>
     </div>
     {% endif %} 
 </div>
