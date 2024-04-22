@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<section class="bg-black text-light">
+    <div class="container p-5">
+        <h2 class="display-4 text-warning" >Analyzed Comments</h2>
+        <hr class="bg-success" >
+        <table class="table bg-light">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for c in comments %}
+              <tr>
+                <td>{{c.user.username}}</td>
+                <td>{{c.comment}}</td>
+                <td>{{c.result}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock body %}

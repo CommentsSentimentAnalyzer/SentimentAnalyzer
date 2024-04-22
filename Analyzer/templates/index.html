@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+{% block homeactive %} active {% endblock homeactive %}
+
+{% block css %}
+
+<style>
+    
+    .banner-card{
+        position:relative;
+        width:100%;
+    }
+    .banner-card img{
+        position:relative;
+        width:100%;
+        height:600px;
+    }
+    .banner-text{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        padding:30px;
+        color:white;
+        font-family: Georgia, serif;
+    }
+    .banner-card1{
+        position:relative;
+        width:100%;
+        overflow:hidden;
+    }
+    .banner-card1 img{
+        position:relative;
+        width:100%;
+        height:320px
+    }
+    .banner-card1 img:hover{
+        transform:scale(1.2);
+        transition:.4s;
+    }
+    .banner-text1{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        color:white;
+        font-family: Georgia, serif;
+    }
+
+</style>
+
+{% endblock css %}
+
+{% block body %}
+<div>
+    <div class="banner-card" > 
+        <img id="images" class="col col-lg-12" src="{% static "img/3.webp" %}">
+        {% comment %} <div class="banner-text">
+            <h1 class="text-dark">Welcome to Farmer's Friend!</h1>
+            <h3>We help Farmer's in any way possible.</h3>
+        </div> {% endcomment %}
+    </div>
+    <section>
+        <div data-background="">
+            <div class="jumbotron bg-dark text-light text-center">
+                <div class=" border border-warning " >
+                    <h1 class="display-4 text-warning m-3">What We Do!</h1>
+                    <p class="lead ">"Our platform is dedicated to assisting farmers in making informed decisions about crop selection based on the unique fertility 
+                        profile of their land. With our comprehensive data analysis tools and expert recommendations, farmers can confidently choose the most suitable crops that align with the specific conditions of their soil, 
+                        ensuring optimal yield and productivity."
+
+                    </p>
+                </div>
+                <hr class="my-4">
+                <p>Experience the power of data-driven agriculture with our innovative tools! 
+                    Discover the perfect crop for your land by exploring our comprehensive fertility assessment 
+                    and crop selection features. Gain insights into soil health, temperature, and other crucial factors to 
+                    make informed decisions that maximize your yield and efficiency. 
+                    Try our tools today and revolutionize your farming experience!</p>
+                <a class="btn btn-outline-warning btn-lg" href="" role="button">Try</a>
+            </div>
+        </div>
+    </section>
+    <section class="m-3" >
+        <div class="row col-lg-12">
+            <div class="banner-card1 col col-lg-4" > 
+                <img id="images" class="" src="{% static "img/1.jpg" %}">
+                {% comment %} <div class="banner-text1">
+                    <h1>We Will Tell You What To Grow!</h1>
+                </div> {% endcomment %}
+            </div><div class="banner-card1 col col-lg-4" > 
+                <img id="images" class="" src="{% static "img/2.jpeg" %}">
+                {% comment %} <div class="banner-text1">
+                    <h1>Farmer's Friend</h1>
+                    <h1>Saved My Crops!</h1>
+                </div> {% endcomment %}
+            </div><div class="banner-card1 text-dark col col-lg-4" > 
+                <img id="images" class="" src="{% static "" %}">
+                <div class="banner-text1">
+                    <h1>We will help you Grow Greatness!</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="jumbotron bg-dark text-light text-center" >
+        <div class="">
+            <div class=" border border-warning " >
+                <h1 class="display-4 text-warning m-3">How it is Done!</h1>
+                    <p class="lead ">"To utilize our platform effectively, farmers are required to have knowledge of the nitrogen, phosphorus, and potassium levels in their soil. This information is essential for our tools to 
+                        provide accurate recommendations and insights tailored to your specific soil conditions. By inputting these key parameters, you'll unlock the full potential of our agricultural tools, enabling you to make 
+                        informed decisions and optimize your crop yield."
+
+                </p>
+            </div>
+            <hr class="my-4">
+        </div>
+    </div>
+    </section>
+    
+</div>
+{% endblock body %}
+

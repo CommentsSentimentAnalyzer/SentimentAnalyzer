@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    {% comment %} <link rel="stylesheet" href="{% static "css/navbar.css" %}">
-    <link rel="stylesheet" href="{% static "css/swiper.css" %}">
+    <link rel="stylesheet" href="{% static "css/navbar.css" %}">
+    {% comment %} <link rel="stylesheet" href="{% static "css/swiper.css" %}">
     <link rel="stylesheet" href="{% static "css/weather.css" %}"> {% endcomment %}
   
 
@@ -19,7 +19,7 @@
     <script src="https://kit.fontawesome.com/6ec9382e98.js" crossorigin="anonymous"></script>
     {% block css %}{% endblock css %}
 </head>
-<body>
+<body style="background-color:black">
     {% comment %} <h1>Yes we are making crop recommendation system</h1> {% endcomment %}
     {% include "includes/navbar.html" %}
       <!-- SignUp Modal -->
@@ -33,7 +33,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action= "" method='post'>
+        <form action= "{% url "Handlesignup" %}" method='post'>
           <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" required placeholder="Choose a unique username (lowercase & alphanumeric).">
@@ -87,7 +87,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action= "/login" method='post'>
+            <form action= "{% url "HandleLogin" %}" method='post'>
               {% csrf_token %}
               <div class="form-group">
                 <label for="username">Username</label>

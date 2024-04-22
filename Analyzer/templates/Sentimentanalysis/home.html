@@ -15,22 +15,26 @@ active
 
 {% block body %}
 <div class="container my-3">
-    <h2>Welcome to our ProofBit Setiment Analyzer :-</h2>
-    {% comment %} {% for item in posts  %}
-    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary"><b>By: {{item.author}}</b></strong>
-            <h3 class="mb-0">{{item.title}}</h3>
-            <div class="mb-1 text-muted">{{item.timeStamp}}</div>
-                <p class="card-text mb-auto"><div class="preview">{{item.content|safe | slice:"0:300"}}.....</div></p>
-                <div class="mt-3">
-                    <a href="/community/{{item.slug}}" role="button" class="btn btn-warning">Continue reading</a>
-                </div>
-            </div>
-        <div class="col-auto d-none d-lg-block">
-
-        </div>     
+    <h2 class="text-warning text-center">Welcome to our ProofBit Setiment Analyzer :-</h2>
+    <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form class="p-4 bg-light border bg-dark" style="border-radius:20px" action="{% url "SentimentAnalysis:formresult" %}" method="post">
+              {% csrf_token %}
+                <h2 class="text-center mb-4">Check Sentiment of Your Comments here...</h2>
+              <div class="form-group">
+                <textarea type="text" class="form-control bg-dark text-light" rows="5" name="comment" id="comment" placeholder="Enter your comment for analysis..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-warning btn-block">Submit</button>
+            </form>
+          </div>
+        </div>
+    </div>     
+    {% if comment %}
+    <div class="text-center m-5 text-light" >
+        <hr class="bg-warning " >
+    <h1>The comment is {{comment}}</h1>
     </div>
-    {% endfor %} {% endcomment %}
+    {% endif %} 
 </div>
 {% endblock body %}

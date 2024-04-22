@@ -18,11 +18,16 @@ from django.contrib import admin
 from django.urls import path,include
 from .import views
 
-admin.site.site_header = "Farmer's Friend Admin"
-admin.site.site_title = "Farmer's Friend Admin Pannel"
-admin.site.index_title = "Welcome to Farmer's Friend Admin Pannel"
+admin.site.site_header = "ProofBit Admin"
+admin.site.site_title = "ProofBit Admin Pannel"
+admin.site.index_title = "Welcome to ProofBit Admin Pannel"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('SentimentAnalysis.urls')),
+    path('', views.index, name="index"),
+    path('history/',views.GetHistory, name="GetHistory"),
+    path('signup/', views.HandleSignup, name='Handlesignup'),
+    path('login/', views.HandleLogin, name='HandleLogin'),
+    path('logout/', views.HandleLogout, name='HandleLogout'),
+    path('sentiment/',include('SentimentAnalysis.urls')),
 ]
