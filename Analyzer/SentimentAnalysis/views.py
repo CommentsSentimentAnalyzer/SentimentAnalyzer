@@ -1,11 +1,9 @@
 from django.shortcuts import render,redirect
 from .models import comment
+
+# Model Creation Here...
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
-
-# Create your views here.
-def SentimentHome(request):
-    return render(request,'Sentimentanalysis/home.html')
 
 # Download the VADER lexicon
 nltk.download('vader_lexicon')
@@ -14,7 +12,7 @@ nltk.download('vader_lexicon')
 sid = SentimentIntensityAnalyzer()
 
 def make_prediction(text):
-  sentiment_scores=sid.polarity_scores(text)
+  sentiment_scores = sid.polarity_scores(text)
   if sentiment_scores['pos'] > sentiment_scores['neg'] and sentiment_scores['pos'] > sentiment_scores['neu'] :
     sentiment = "Positive"
   elif sentiment_scores['neg'] > sentiment_scores['neu'] and sentiment_scores['neg'] > sentiment_scores['pos']:
@@ -33,3 +31,7 @@ def formresult(request):
     comm.result = commentRes
     comm.save()
     return render(request,'Sentimentanalysis/home.html',{'comment':commentRes})
+  
+# Create your views here.
+def SentimentHome(request):
+    return render(request,'Sentimentanalysis/home.html')
