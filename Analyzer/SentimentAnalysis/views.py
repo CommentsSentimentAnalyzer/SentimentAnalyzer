@@ -23,10 +23,6 @@ def make_prediction(text):
     sentiment = "Neutral"
   return sentiment
 
-# user_input=input("Input Prompt:")
-# result=make_prediction(user_input)
-# print("Answer: ",result)
-
 def formresult(request):
   if request.method == 'POST':
     c = request.POST.get('comment')
