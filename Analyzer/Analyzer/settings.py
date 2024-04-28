@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'SentimentAnalysis',
+    'Community',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [

@@ -12,6 +12,9 @@
         <li class="nav-item {% block Analyzeractive %} {% endblock Analyzeractive %}">
           <a class="nav-link text-warning" href="/sentiment">Sentiment Analyzer <span class="sr-only">(current)</span></a>
         </li> 
+        <li class="nav-item {% block Communityactive %} {% endblock Communityactive %}">
+          <a class="nav-link text-warning" href="/community">Our Community <span class="sr-only">(current)</span></a>
+        </li> 
         {% if user.is_authenticated %}
         <li class="nav-item {% block Historyactive %} {% endblock Historyactive %}">
             <a class="nav-link text-warning" href="/history">History</a>

@@ -30,4 +30,5 @@ urlpatterns = [
     path('login/', views.HandleLogin, name='HandleLogin'),
     path('logout/', views.HandleLogout, name='HandleLogout'),
     path('sentiment/',include('SentimentAnalysis.urls')),
+    path('community/',include('Community.urls')),
 ]
