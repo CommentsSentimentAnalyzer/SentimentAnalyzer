@@ -33,7 +33,7 @@
     {% for items in comments %}
     <div class="row my-3">
         <div class="col-md-1 m-2">
-            <img class="rounded mx-auto d-block w-100 pt-2" style="border: 2px solid black;" src="{% static 'img/user.png' %}" alt="user">
+            <img class="rounded mx-auto d-block w-100 pt-2" style="border: 2px solid black;" src="{% static 'img/usr.png' %}" alt="user">
         </div>
         <div class="col-md-10 m-2 border border-dark">
             <b class="text-warning"> {{items.user.username}} </b> <b class="text-light"> |</b> <span style="font-size: 13px; color: blue; font-weight: 500;"><b>{{items.timestamp | naturaltime}}</b></span>
@@ -84,7 +84,7 @@
                     {% for reply in replyDict|get_val:items.sno %}
                     <div class="row my-2">
                         <div class="col-md-1">
-                            <img class="rounded mx-auto d-block w-75 h-75 my-2" style="border: 2px solid black;" src="{% static 'img/user.png' %}" alt="user">
+                            <img class="rounded mx-auto d-block w-75 h-75 my-2" style="border: 2px solid black;" src="{% static 'img/usr.png' %}" alt="user">
                         </div>
                         <div class="col-md-9">
                             <b class="text-warning"> {{reply.user.username}} </b><b class="text-light"> |</b>  <span style="font-size: 13px; color: blue; font-weight: 500;"><b>{{reply.timestamp | naturaltime}}</b></span>
